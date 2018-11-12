@@ -16,6 +16,21 @@
         <h1>해외정책동향</h1>
     </div>
 </div>
+<form method="get">
+<div class="input-group mb-3">
+	<!-- <div class="form-group" style="margin:0;">
+		<select class="form-control" name="type">
+			<option value="1">제목</option>
+			<option value="2">내용</option>
+			<option value="3">제목+내용</option>
+		</select>
+	</div> -->
+	<input type="text" class="form-control" placeholder="Search" name="search">
+	<div class="input-group-append">
+    	<button class="btn btn-success" type="submit">Go</button> 
+  	</div>
+</div>
+</form>
 	<table>
 		<c:forEach var="item" items="${feed}" varStatus="status">
 			<tr>
@@ -28,17 +43,17 @@
 	<ul class="pagination" style="justify-content: center;">
 	    <c:if test="${pageMaker.prev}">
 	        <li class="page-item">
-	            <a class="page-link" href="<%=request.getContextPath()%>/?page=${pageMaker.startPage-1}">Previous</a>
+	            <a class="page-link" href="<%=request.getContextPath()%>/?page=${pageMaker.startPage-1}&search=${pageMaker.criteria.search }">Previous</a>
 	        </li>
 	    </c:if>
 	    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage}" var="index">
 	        <li class="page-item <c:if test="${pageMaker.criteria.page == index }">active</c:if>">
-	            <a class="page-link" href="<%=request.getContextPath()%>/?page=${index}">${index}</a>
+	            <a class="page-link" href="<%=request.getContextPath()%>/?page=${index}&search=${pageMaker.criteria.search }">${index}</a>
 	        </li>
 	    </c:forEach>
 	    <c:if test="${pageMaker.next}">
 	        <li class="page-item">
-	            <a class="page-link" href="<%=request.getContextPath()%>/?page=${pageMaker.endPage+1}">Next</a>
+	            <a class="page-link" href="<%=request.getContextPath()%>/?page=${pageMaker.endPage+1}&search=${pageMaker.criteria.search }">Next</a>
 	        </li>
 	    </c:if>
 	</ul>
