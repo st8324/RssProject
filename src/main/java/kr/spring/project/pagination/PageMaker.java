@@ -9,6 +9,11 @@ public class PageMaker {
 	private int displayPageNum;
 	private Criteria criteria;
 	
+	public PageMaker(int totalCount, int displayPageNum, Criteria cri) {
+		this.setCriteria(cri);
+		this.setDisplayPageNum(displayPageNum);
+		this.setTotalCount(totalCount);
+	}
 	/* endPage, startPage, prev, next 값 계산 */
 	public void calcData() {
 		/* starPage와 endPage는 현재 페이지 정보인 criteria와 displayPageNum을 이용하여 계산
