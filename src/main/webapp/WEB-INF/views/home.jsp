@@ -21,6 +21,7 @@
 			<tr>
 				<td>${size -(pageMaker.criteria.page-1)*pageMaker.criteria.perPageNum - status.count +1}</td>
 				<td>${item.title }</td>
+				<td>${item.pubdate}</td>
 			</tr>
 		</c:forEach>
 	</table>

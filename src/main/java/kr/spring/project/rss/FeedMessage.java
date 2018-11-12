@@ -1,5 +1,8 @@
 package kr.spring.project.rss;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class FeedMessage {
     
     /**
@@ -73,7 +76,12 @@ public class FeedMessage {
      }
  
      public String getPubdate() {
-          return pubdate;
+    	 String year = pubdate.substring(0,4);
+    	 String month = pubdate.substring(4,6);
+    	 String day = pubdate.substring(6,8);
+    	 
+    	 return year+"-"+month+"-"+day;
+
      }
  
      public void setPubdate(String pubdate) {
